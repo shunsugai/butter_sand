@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = ButterSand::VERSION
   spec.authors       = ["Shun Sugai"]
   spec.email         = ["sugaishun@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = "Ruby wrapper for marusei butter sand website"
+  spec.summary       = "Ruby wrapper for marusei butter sand website"
+  spec.homepage      = "https://github.com/shunsugai/butter_sand"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
@@ -18,6 +18,12 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
+  spec.add_dependency 'faraday', '~> 0.8'
+  spec.add_dependency 'faraday_middleware'
+  spec.add_dependency 'nokogiri', '~> 1.5.6'
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
+  spec.add_development_dependency 'rspec'
+  spec.add_development_dependency 'webmock'
+  spec.add_development_dependency 'simplecov'
 end

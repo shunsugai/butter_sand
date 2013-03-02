@@ -1,24 +1,48 @@
 # ButterSand
 
-TODO: Write a gem description
+六花亭さんの催事情報ページの内容を取得するためのRubyラッパーです
 
-## Installation
+## インストール方法
 
-Add this line to your application's Gemfile:
+Gemfileに次の一行を追加してください:
 
     gem 'butter_sand'
 
-And then execute:
+次に以下のコマンドを実行してください:
 
     $ bundle
 
-Or install it yourself as:
+もしくはbundlerを使わずに以下のコマンドでインストールしてもOKです:
 
     $ gem install butter_sand
 
-## Usage
+## 使いかた
 
-TODO: Write usage instructions here
+### 催事情報を取得する
+```ruby
+require 'butter_sand'
+
+# 全件取得
+ButterSand.all.each do |event|
+  puts event.shop        #=> 店名
+  puts event.prefecture  #=> 県
+  puts event.phone       #=> 電話番号
+  puts event.starts      #=> 開始日
+  puts event.ends        #=> 終了日
+end
+
+# 今日から始まる催事情報
+ButterSand.starts_today
+
+# 今日で終わる催事情報
+ButterSand.ends_today
+
+# 県名で調べる
+ButterSand.find_by_prefecture('東京')
+```
+
+### TODO
+JSON返すやつ作る
 
 ## Contributing
 
