@@ -1,5 +1,4 @@
 require "butter_sand/client"
-require "butter_sand/parser"
 require "butter_sand/version"
 
 module ButterSand
