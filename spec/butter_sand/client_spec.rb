@@ -6,12 +6,24 @@ describe ButterSand::Client do
 
   describe 'get' do
     context '400' do
-      before do
-        stub_request(:get, url).to_return(:status => 400, :body => {'error' => 'Bad Request'})
+      context 'with no error message' do
+        before do
+          stub_request(:get, url).to_return(:status => 400, :body => {'error' => ''})
+        end
+
+        it 'should raise ButterSand::BadRequest' do
+          lambda{ ButterSand.get(path_saiji) }.should raise_error ButterSand::BadRequest, 'GET https://www.rokkatei-eshop.com/contents/shop/saiji/: 400'
+        end
       end
 
-      it 'should raise ButterSand::BadRequest' do
-        lambda{ ButterSand.get(path_saiji) }.should raise_error ButterSand::BadRequest
+      context 'with error message' do
+        before do
+          stub_request(:get, url).to_return(:status => 400, :body => {'error' => 'BadRequest'})
+        end
+
+        it 'should raise ButterSand::BadRequest' do
+          lambda{ ButterSand.get(path_saiji) }.should raise_error ButterSand::BadRequest, 'BadRequest'
+        end
       end
     end
 
@@ -21,7 +33,7 @@ describe ButterSand::Client do
       end
 
       it 'should raise ButterSand::Unauthorized' do
-        lambda{ ButterSand.get(path_saiji) }.should raise_error ButterSand::Unauthorized
+        lambda{ ButterSand.get(path_saiji) }.should raise_error ButterSand::Unauthorized, 'Unauthorized'
       end
     end
 
@@ -31,7 +43,7 @@ describe ButterSand::Client do
       end
 
       it 'should raise ButterSand::Unauthorized' do
-        lambda{ ButterSand.get(path_saiji) }.should raise_error ButterSand::Forbidden
+        lambda{ ButterSand.get(path_saiji) }.should raise_error ButterSand::Forbidden, 'Forbidden'
       end
     end
 
@@ -41,7 +53,7 @@ describe ButterSand::Client do
       end
 
       it 'should raise ButterSand::NotFound' do
-        lambda{ ButterSand.get(path_saiji) }.should raise_error ButterSand::NotFound
+        lambda{ ButterSand.get(path_saiji) }.should raise_error ButterSand::NotFound, 'Not Found'
       end
     end
 
@@ -51,7 +63,7 @@ describe ButterSand::Client do
       end
 
       it 'should raise ButterSand::NotAcceptable' do
-        lambda{ ButterSand.get(path_saiji) }.should raise_error ButterSand::NotAcceptable
+        lambda{ ButterSand.get(path_saiji) }.should raise_error ButterSand::NotAcceptable, 'Not Acceptable'
       end
     end
 
@@ -61,7 +73,7 @@ describe ButterSand::Client do
       end
 
       it 'should raise ButterSand::InternalServerError' do
-        lambda{ ButterSand.get(path_saiji) }.should raise_error ButterSand::InternalServerError
+        lambda{ ButterSand.get(path_saiji) }.should raise_error ButterSand::InternalServerError, 'Internal Server Error'
       end
     end
 
@@ -71,7 +83,7 @@ describe ButterSand::Client do
       end
 
       it 'should raise ButterSand::ServiceUnavailable' do
-        lambda{ ButterSand.get(path_saiji) }.should raise_error ButterSand::ServiceUnavailable
+        lambda{ ButterSand.get(path_saiji) }.should raise_error ButterSand::ServiceUnavailable, 'Internal Server Error'
       end
     end
   end
