@@ -12,14 +12,18 @@ module ButterSand
         ButterSand::Parser.to_array(get(PATH_SAIJI)).map {|event| ButterSand::Event.new(event)}
       end
 
+      def on_sale
+        all.select {|event| (event.starts..event.ends) === (@date_for_test || Date.today)}
+      end
+
       # @return [Array<ButterSand::Event>]
       def starts_today
-        all.select {|event| event.starts == Date.today}
+        all.select {|event| event.starts == (@date_for_test || Date.today)}
       end
 
       # @return [Array<ButterSand::Event>]
       def ends_today
-        all.select {|event| event.ends == Date.today}
+        all.select {|event| event.ends == (@date_for_test || Date.today)}
       end
 
       # @return [Array<ButterSand::Event>]
