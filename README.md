@@ -1,5 +1,6 @@
 # ButterSand
 
+[![Gem Version](https://badge.fury.io/rb/butter_sand.png)](https://rubygems.org/gems/butter_sand)
 [![Build Status](https://travis-ci.org/shunsugai/butter_sand.png?branch=master)](https://travis-ci.org/shunsugai/butter_sand)
 [![Coverage Status](https://coveralls.io/repos/shunsugai/butter_sand/badge.png?branch=master)](https://coveralls.io/r/shunsugai/butter_sand?branch=master)
 
