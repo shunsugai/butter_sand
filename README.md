@@ -3,6 +3,7 @@
 [![Gem Version](https://badge.fury.io/rb/butter_sand.png)](https://rubygems.org/gems/butter_sand)
 [![Build Status](https://travis-ci.org/shunsugai/butter_sand.png?branch=master)](https://travis-ci.org/shunsugai/butter_sand)
 [![Coverage Status](https://coveralls.io/repos/shunsugai/butter_sand/badge.png?branch=master)](https://coveralls.io/r/shunsugai/butter_sand?branch=master)
+[![Code Climate](https://codeclimate.com/github/shunsugai/butter_sand.png)](https://codeclimate.com/github/shunsugai/butter_sand)
 [![Dependency Status](https://gemnasium.com/shunsugai/butter_sand.png)](https://gemnasium.com/shunsugai/butter_sand)
 
 六花亭さんの催事情報ページの内容を取得するためのRubyラッパーです
