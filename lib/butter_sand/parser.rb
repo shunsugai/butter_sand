@@ -41,7 +41,7 @@ module ButterSand
         return false if str_elems.length < 4
         return false unless str_elems[KEY_PHONE_NUM].strip.phone_number?
         begin
-          dates = str_elems[KEY_DATE_INFO].date_to_ary
+          str_elems[KEY_DATE_INFO].date_to_ary
         rescue ArgumentError => e
           print e.message, "\n"
           return false
