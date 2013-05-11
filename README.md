@@ -1,6 +1,7 @@
 # ButterSand
 
 [![Build Status](https://travis-ci.org/shunsugai/butter_sand.png?branch=master)](https://travis-ci.org/shunsugai/butter_sand)
+[![Coverage Status](https://coveralls.io/repos/shunsugai/butter_sand/badge.png?branch=master)](https://coveralls.io/r/shunsugai/butter_sand?branch=master)
 
 六花亭さんの催事情報ページの内容を取得するためのRubyラッパーです
 
