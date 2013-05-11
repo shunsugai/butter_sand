@@ -22,11 +22,11 @@ module ButterSand
           end
 
           shops << {
-            shop:       str_elems[2],
-            prefecture: str_elems[1],
-            phone:      str_elems[3].strip,
-            starts:     dates[0],
-            ends:       dates[1]
+            :shop       => str_elems[2],
+            :prefecture => str_elems[1],
+            :phone      => str_elems[3].strip,
+            :starts     => dates[0],
+            :ends       => dates[1]
           }
         end
         shops

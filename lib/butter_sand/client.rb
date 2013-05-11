@@ -23,7 +23,7 @@ module ButterSand
     end
 
     def connection
-      @connection ||= Faraday.new ROOT_URL, ssl: {verify: false} do |conn|
+      @connection ||= Faraday.new ROOT_URL, :ssl => {:verify => false} do |conn|
         conn.use Faraday::Response::RaiseButterSandError
         conn.use Faraday::Adapter::NetHttp
       end

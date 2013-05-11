@@ -7,8 +7,7 @@ describe ButterSand::Parser do
 
   context 'with some events' do
     before do
-      stub_request(:get, 'https://www.rokkatei-eshop.com/contents/shop/saiji/')
-      .to_return(:status => 200, :body => fixture('marusei.html'))
+      stub_request(:get, 'https://www.rokkatei-eshop.com/contents/shop/saiji/').to_return(:status => 200, :body => fixture('marusei.html'))
       @response = ButterSand.get(path_saiji)
       @response_array = ButterSand::Parser.to_array(@response)
     end
@@ -23,7 +22,7 @@ describe ButterSand::Parser do
       end
 
       it 'includes Hash' do
-        @response_array.sample.should be_kind_of Hash
+        @response_array.first.should be_kind_of Hash
       end
 
       it "first item's shop name should be 'うすい百貨店'" do
@@ -50,8 +49,7 @@ describe ButterSand::Parser do
 
   context 'with no event' do
     before do
-      stub_request(:get, 'https://www.rokkatei-eshop.com/contents/shop/saiji/')
-      .to_return(:status => 200, :body => fixture('marusei_no_event.html'))
+      stub_request(:get, 'https://www.rokkatei-eshop.com/contents/shop/saiji/').to_return(:status => 200, :body => fixture('marusei_no_event.html'))
       @response = ButterSand.get(path_saiji)
       @response_array = ButterSand::Parser.to_array(@response)
     end
