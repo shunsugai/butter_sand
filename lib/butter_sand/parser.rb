@@ -17,7 +17,7 @@ module ButterSand
 
       # @return [Array<Hash>]
       def to_array(body)
-        valid_infos = raw_events(Nokogiri::HTML(body)).select { |elem| is_valid_data? elem }
+        valid_infos = raw_events(Nokogiri::HTML(body)).select { |elem| valid_data? elem }
         valid_infos.map { |elem| shop_data_hash(elem.split(/\n\s+/)) }
       end
 
@@ -36,7 +36,7 @@ module ButterSand
       end
 
       # @return [Boolean]
-      def is_valid_data?(raw_data)
+      def valid_data?(raw_data)
         str_elems = raw_data.split(/\n\s+/)
         return false if str_elems.length < 4
         return false unless str_elems[KEY_PHONE_NUM].strip.phone_number?
