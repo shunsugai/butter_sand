@@ -9,6 +9,8 @@ require 'butter_sand'
 require 'faraday/response/raise_butter_sand_error'
 require 'webmock/rspec'
 require 'date'
+require 'coveralls'
+Coveralls.wear!
 
 RSpec.configure do |config|
   config.order = 'random'
